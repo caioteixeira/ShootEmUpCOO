@@ -12,7 +12,7 @@ public abstract class GameEntity {
 	//Garante que entidades não sejam inicializadas inadequadamente
 	protected GameEntity(){}
 
-	void GameEntity(String id, Vector position)
+	GameEntity(String id, Vector position)
 	{
 		this.id = id;
 		this.position = position;

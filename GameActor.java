@@ -6,7 +6,7 @@ public abstract class GameActor extends GameEntity {
 	private int radius;
 	
 	
-	void GameActor(String id, Vector position, int radius)
+	GameActor(String id, Vector position, int radius)
 	{
 		this.radius = radius;
 		this.position = position;

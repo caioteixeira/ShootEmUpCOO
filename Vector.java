@@ -4,7 +4,7 @@
 public class Vector {
 	public int x;
 	public int y;
-	void Vector(int x, int y)
+	Vector(int x, int y)
 	{
 		this.x = x;
 		this.y = y;
