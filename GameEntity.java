@@ -3,7 +3,7 @@
 
 public abstract class GameEntity {
 	
-	private String id;
+	protected String id;
 	public Vector position;
 	
 	public String getId() {
