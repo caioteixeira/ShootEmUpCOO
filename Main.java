@@ -424,10 +424,13 @@ public class Main {
 
 							double [] angles = { Math.PI/2 + Math.PI/8, Math.PI/2, Math.PI/2 - Math.PI/8 };
 							int [] freeArray = findFreeIndex(e_projectile_states, angles.length);
-
+							
+							//System.out.println(freeArray.length);
 							for(int k = 0; k < freeArray.length; k++){
 								
 								int free = freeArray[k];
+								
+								//System.out.println(e_projectile_states.length);
 								
 								if(free < e_projectile_states.length){
 									

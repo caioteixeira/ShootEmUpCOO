@@ -9,6 +9,9 @@ public class GameController {
 	
 	long nextEnemy1;
 	
+	double enemy2_spawnX = GameLib.WIDTH * 0.20;			// coordenada x do próximo inimigo tipo 2 a aparecer
+	int enemy2_count = 0;									// contagem de inimigos tipo 2 (usada na "formação de voo")
+	long nextEnemy2;
 	
 	private GameController()
 	{
@@ -21,6 +24,7 @@ public class GameController {
 		
 		
 		nextEnemy1 = Time.getCurrentTime() + 2000;
+		nextEnemy2 = Time.getCurrentTime() + 7000;
 	};
 	private static GameController instance;
 	public static GameController Instance()
@@ -105,6 +109,33 @@ public class GameController {
 			novo.angle = 3 * Math.PI / 2;
 			novo.rotationvelocity = 0.0;
 			this.nextEnemy1 = Time.getCurrentTime() + 500;
+		}
+		
+		//Precisa lancar novo inimigo 2:
+		if(Time.getCurrentTime() > nextEnemy2){
+			
+			//int free = findFreeIndex(enemy2_states);
+							
+			//if(free < enemy2_states.length){
+			
+			Vector position = new Vector (enemy2_spawnX, -10.0);
+			Enemy2 novo = new Enemy2("Enemy2", position);
+			novo.velocity = 0.42;
+			novo.angle = (3 * Math.PI) / 2;
+			novo.rotationvelocity = 0.0;
+
+			enemy2_count++;
+			
+			if(enemy2_count < 10){
+				
+				nextEnemy2 = Time.getCurrentTime() + 120;
+			}
+			else {
+				
+				enemy2_count = 0;
+				enemy2_spawnX = Math.random() > 0.5 ? GameLib.WIDTH * 0.2 : GameLib.WIDTH * 0.8;
+				nextEnemy2 = (long) (Time.getCurrentTime() + 3000 + Math.random() * 3000);
+			}
 		}
 	}
 	

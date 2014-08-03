@@ -17,7 +17,20 @@ public class Projectile extends GameActor {
 	
 	void onCollision(GameActor collider)
 	{
-		
+		switch(collider.id)
+		{
+		case "Player":
+			if(this.id == "PlayerProjectile")
+				break;
+		case "Enemy1":
+			if(this.id == "Projectile")
+				break;
+		case "Enemy2":
+			if(this.id == "Projectile")
+				break;
+			GameController.Instance().Destroy(this);
+			break;
+		}
 	}
 	
 	public void update()
