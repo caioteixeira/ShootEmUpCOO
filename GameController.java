@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.util.LinkedList;
+import java.util.Stack;
 
 //Classe responsável por controlar todo o gameplay, deve ser Singleton
 
@@ -27,10 +28,10 @@ public class GameController {
 	{
 		entities = new LinkedList<GameEntity>();
 		gameActors = new LinkedList<GameActor>();
-		tempEntities = new LinkedList<GameEntity>();
-		tempActors = new LinkedList<GameActor>();
-		tempDEntities = new LinkedList<GameEntity>();
-		tempDActors = new LinkedList<GameActor>();
+		tempEntities = new Stack<GameEntity>();
+		tempActors = new Stack<GameActor>();
+		tempDEntities = new Stack<GameEntity>();
+		tempDActors = new Stack<GameActor>();
 		
 		
 		nextEnemy1 = Time.getCurrentTime() + 2000;
@@ -48,20 +49,16 @@ public class GameController {
 	 * Trecho responsável por controlar a criação de novas entidades
 	 * Objetos a serem adicionados devem ser adicionados somente no próximo frame para evitar quebra nos loops principais
 	 */
-	private LinkedList<GameEntity> tempEntities;
-	private LinkedList<GameActor> tempActors;
+	private Stack<GameEntity> tempEntities;
+	private Stack<GameActor> tempActors;
 	
 	//Adiciona objetos nas listas
 	public void Instantiate(GameEntity entity)
 	{
-		if(tempEntities == null)
-			tempEntities = new LinkedList<GameEntity>();
 		tempEntities.add(entity);
 	}
 	public void Instantiate(GameActor actor)
 	{
-		if(tempActors == null)
-			tempActors = new LinkedList<GameActor>();
 		tempActors.add(actor);
 		Instantiate((GameEntity)actor);
 	}
@@ -69,18 +66,14 @@ public class GameController {
 	/*
 	 * Trecho responsável por destruir entidades
 	 */
-	private LinkedList<GameEntity> tempDEntities;
-	private LinkedList<GameActor> tempDActors;
+	private Stack<GameEntity> tempDEntities;
+	private Stack<GameActor> tempDActors;
 	public void Destroy(GameEntity entity)
 	{
-		if(tempDEntities == null)
-			tempDEntities = new LinkedList<GameEntity>();
 		tempDEntities.add(entity);
 	}
 	public void Destroy(GameActor actor)
 	{
-		if(tempDActors == null)
-			tempDActors = new LinkedList<GameActor>();
 		tempDActors.add(actor);
 		Destroy((GameEntity) actor);
 	}
@@ -90,18 +83,17 @@ public class GameController {
 	private void updateLists()
 	{
 		//Loops de instancialização de novas entidades
-		for(GameEntity e: tempEntities)
-			entities.add(e);
-		tempEntities.clear();
-		for(GameActor e: tempActors)
-			gameActors.add(e);
+		while(!tempEntities.isEmpty())
+			entities.add(tempEntities.pop());
+		while(!tempActors.isEmpty())
+			gameActors.add(tempActors.pop());
 		tempActors.clear();
 		//Loops de destruição de objetos
-		for(GameEntity e: tempDEntities)
-			entities.remove(e);
+		while(!tempDEntities.isEmpty())
+			entities.remove(tempDEntities.pop());
 		tempDEntities.clear();
-		for(GameActor a: tempDActors)
-			gameActors.remove(a);
+		while(!tempDActors.isEmpty())
+			gameActors.remove(tempDActors.pop());
 		tempDActors.clear();
 		
 	}
