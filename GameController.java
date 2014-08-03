@@ -117,7 +117,15 @@ public class GameController {
 		{
 			for(GameActor a: gameActors)
 			{
-				double dx = e.position.x - a.position.y;
+				/*
+				 * double dx = e_projectile_X[i] - player_X;
+					double dy = e_projectile_Y[i] - player_Y;
+					double dist = Math.sqrt(dx * dx + dy * dy);
+					
+					if(dist < (player_radius + e_projectile_radius)
+				 */
+				
+				double dx = e.position.x - a.position.x;
 				double dy = e.position.y - a.position.y;
 				double dist = Math.sqrt(dx * dx + dy * dy);
 				if(dist < e.getRadius() + a.getRadius())
