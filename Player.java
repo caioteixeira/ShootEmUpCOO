@@ -32,23 +32,18 @@ public class Player extends GameActor {
 	public void onCollision(GameActor collider)
 	{
 		String id = collider.id;
-		switch(id)
+		if(this.state == ACTIVE)
 		{
-		case "Projectile":
-			state = EXPLODING;
-			explosion_start = Time.getCurrentTime();
-			explosion_end = Time.getCurrentTime() + 2000;
-			break;
-		case "Enemy1":
-			state = EXPLODING;
-			explosion_start = Time.getCurrentTime();
-			explosion_end = Time.getCurrentTime() + 2000;
-			break;
-		case "Enemy2":
-			state = EXPLODING;
-			explosion_start = Time.getCurrentTime();
-			explosion_end = Time.getCurrentTime() + 2000;
-			break;
+			switch(id)
+			{
+			case "Projectile":
+			case "Enemy1":
+			case "Enemy2":
+				state = EXPLODING;
+				explosion_start = Time.getCurrentTime();
+				explosion_end = Time.getCurrentTime() + 2000;
+				break;
+			}
 		}
 	}
 	
