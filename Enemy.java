@@ -6,16 +6,16 @@ public abstract class Enemy extends GameActor {
 	public static final int ACTIVE = 1;
 	public static final int EXPLODING = 2;
 	
-	double velocity;
-	double rotationvelocity;
-	double angle;
+	public double velocity;
+	public double rotationvelocity;
+	public double angle;
 	
 	double explosion_start;
 	double explosion_end;
 	
 	int state = INACTIVE;
 	
-	Enemy(String id, Vector position, int radius) {
-		super(id, position, radius);
+	Enemy(String id, Vector position) {
+		super(id, position);
 	}
 }

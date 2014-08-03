@@ -2,18 +2,18 @@
 public class Time {
 	
 	
-	private static double currentTime;
+	private static long currentTime;
 	public static void setCurrentTime()
 	{
 		currentTime = System.currentTimeMillis();
 	}
 	
-	public static double getCurrentTime()
+	public static long getCurrentTime()
 	{
 		return currentTime;
 	}
 	
-	public static double deltaTime()
+	public static long deltaTime()
 	{
 		return System.currentTimeMillis() - getCurrentTime();
 	}

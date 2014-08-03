@@ -2,9 +2,9 @@
 
 
 public class Vector {
-	public int x;
-	public int y;
-	Vector(int x, int y)
+	public double x;
+	public double y;
+	Vector(double x, double y)
 	{
 		this.x = x;
 		this.y = y;

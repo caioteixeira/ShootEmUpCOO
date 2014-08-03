@@ -346,7 +346,7 @@ public class Main {
 						enemy1_states[i] = INACTIVE;
 					}
 					else {
-					
+						System.out.println(enemy1_V[i] * Math.cos(enemy1_angle[i]) * delta);
 						enemy1_X[i] += enemy1_V[i] * Math.cos(enemy1_angle[i]) * delta;
 						enemy1_Y[i] += enemy1_V[i] * Math.sin(enemy1_angle[i]) * delta * (-1.0);
 						enemy1_angle[i] += enemy1_RV[i] * delta;

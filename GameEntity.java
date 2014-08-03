@@ -16,6 +16,7 @@ public abstract class GameEntity {
 	{
 		this.id = id;
 		this.position = position;
+		GameController.Instance().Instantiate(this);
 	}
 	
 	public void update()

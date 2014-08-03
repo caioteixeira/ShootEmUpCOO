@@ -6,11 +6,11 @@ public abstract class GameActor extends GameEntity {
 	private int radius;
 	
 	
-	GameActor(String id, Vector position, int radius)
+	GameActor(String id, Vector position)
 	{
-		this.radius = radius;
 		this.position = position;
 		this.id = id;
+		GameController.Instance().Instantiate(this);
 	}
 	
 	int getRadius()
