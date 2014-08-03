@@ -17,4 +17,10 @@ public abstract class GameActor extends GameEntity {
 	{
 		return this.radius;
 	}
+	
+	//Define o tratamento de colisões
+	void onCollision(GameActor collider)
+	{
+		
+	}
 }
