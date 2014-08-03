@@ -14,7 +14,7 @@ public class Main {
 	/* maior ou igual ao instante especificado no parâmetro "time.    */
 	
 	public static void busyWait(long time){
-		
+		//System.out.println(time);
 		while(System.currentTimeMillis() < time) Thread.yield();
 	}
 	
@@ -346,7 +346,7 @@ public class Main {
 						enemy1_states[i] = INACTIVE;
 					}
 					else {
-						System.out.println(enemy1_V[i] * Math.cos(enemy1_angle[i]) * delta);
+						//System.out.println(enemy1_V[i] * Math.cos(enemy1_angle[i]) * delta);
 						enemy1_X[i] += enemy1_V[i] * Math.cos(enemy1_angle[i]) * delta;
 						enemy1_Y[i] += enemy1_V[i] * Math.sin(enemy1_angle[i]) * delta * (-1.0);
 						enemy1_angle[i] += enemy1_RV[i] * delta;
@@ -647,6 +647,7 @@ public class Main {
 			
 			/* faz uma pausa de modo que cada execução do laço do main loop demore aproximadamente 5 ms. */
 			
+			//System.out.println(delta);
 			busyWait(currentTime + 5);
 		}
 		

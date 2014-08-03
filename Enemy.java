@@ -13,7 +13,7 @@ public abstract class Enemy extends GameActor {
 	double explosion_start;
 	double explosion_end;
 	
-	int state = INACTIVE;
+	int state;
 	
 	Enemy(String id, Vector position) {
 		super(id, position);

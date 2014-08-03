@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.LinkedList;
 
 //Classe responsável por controlar todo o gameplay, deve ser Singleton
@@ -141,6 +142,7 @@ public class GameController {
 		{
 			e.draw();
 		}
+		
 	}
 	
 }

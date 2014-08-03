@@ -3,7 +3,7 @@
 //Deve ser superclasse de entidades que devem lidar com colisões (Player, Inimigos, Projeteis)
 
 public abstract class GameActor extends GameEntity {
-	private int radius;
+	protected double radius;
 	
 	
 	GameActor(String id, Vector position)
@@ -13,7 +13,7 @@ public abstract class GameActor extends GameEntity {
 		GameController.Instance().Instantiate(this);
 	}
 	
-	int getRadius()
+	double getRadius()
 	{
 		return this.radius;
 	}

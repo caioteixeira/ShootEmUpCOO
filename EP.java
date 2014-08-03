@@ -5,6 +5,7 @@ public class EP {
 	
 	public static void busyWait(long time){
 		
+		//System.out.println(time);
 		while(System.currentTimeMillis() < time) Thread.yield();
 	}
 	
@@ -14,6 +15,7 @@ public class EP {
 	public static void main(String[] args)
 	{
 		boolean running = true;
+		Time.setCurrentTime();
 						
 		/* iniciado interface gráfica */
 		
@@ -42,11 +44,14 @@ public class EP {
 		
 		GameController controller = GameController.Instance();
 		
+		
 		while(running){
 		
 			/* Usada para atualizar o estado dos elementos do jogo    */
 			/* (player, projéteis e inimigos) "delta" indica quantos  */
 			/* ms se passaram desde a última atualização.             */
+			
+			Time.setDeltaTime();
 			
 			Time.setCurrentTime();
 			
@@ -58,6 +63,7 @@ public class EP {
 			
 			/* faz uma pausa de modo que cada execução do laço do main loop demore aproximadamente 5 ms. */
 			
+			//System.out.println(Time.deltaTime());
 			busyWait(Time.getCurrentTime() + 5);
 		}
 		

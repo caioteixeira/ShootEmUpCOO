@@ -4,12 +4,12 @@ import java.awt.Color;
 public class Enemy1 extends Enemy {
 	
 	long nextShot;
-	double radius = 9.0;
 
 	Enemy1(String id, Vector position) {
 		super(id, position);
 		state = ACTIVE;
 		nextShot = (long) (Time.getCurrentTime() + 500);
+		this.radius = 9.0;
 	}
 	
 	
@@ -53,14 +53,23 @@ public class Enemy1 extends Enemy {
 				 */
 				
 				//Atualiza posição
-				System.out.println(this.velocity * Math.cos(this.angle) * Time.deltaTime());
+				//System.out.println(this.velocity * Math.cos(this.angle) * Time.deltaTime());
 				this.position.x += this.velocity * Math.cos(this.angle) * Time.deltaTime();
 				this.position.y += this.velocity * Math.sin(this.angle) * Time.deltaTime() * (-1.0);
 				this.angle += this.rotationvelocity * Time.deltaTime();
 			
+				/*
+				 * 
+				 * e_projectile_X[free] = enemy1_X[i];
+					e_projectile_Y[free] = enemy1_Y[i];
+					e_projectile_VX[free] = Math.cos(enemy1_angle[i]) * 0.45;
+					e_projectile_VY[free] = Math.sin(enemy1_angle[i]) * 0.45 * (-1.0);
+					e_projectile_states[free] = 1;
+				 */
+				
 				if(Time.getCurrentTime() > this.nextShot)
 				{
-					new Projectile("Projectile", new Vector(this.position.x, this.position.y), Math.cos(this.angle * 0.45), Math.sin(this.angle) * 0.45 * (-1.0));
+					new Projectile("Projectile", new Vector(this.position.x, this.position.y), Math.cos(this.angle) * 0.45, Math.sin(this.angle) * 0.45 * (-1.0));
 					this.nextShot = (long) (Time.getCurrentTime() +200 + Math.random() * 500);
 				}
 			}
@@ -71,7 +80,7 @@ public class Enemy1 extends Enemy {
 	
 	public void draw()
 	{
-		System.out.println(this.position.y);
+		//System.out.println(this.position.y);
 		
 		//System.out.println("Desenha");
 		if(state == EXPLODING){

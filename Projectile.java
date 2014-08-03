@@ -7,12 +7,12 @@ public class Projectile extends GameActor {
 	double vx;
 	double vy;
 	
-	double radius = 2.0;
 
 	Projectile(String id, Vector position, double vx, double vy) {
 		super(id, position);
 		this.vx = vx;
 		this.vy = vy;
+		this.radius = 2.0;
 	}
 	
 	void onCollision(GameActor collider)
