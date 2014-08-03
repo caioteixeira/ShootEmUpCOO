@@ -68,10 +68,10 @@ public class Player extends GameActor {
 			if(GameLib.iskeyPressed(GameLib.KEY_RIGHT)) position.x += Time.deltaTime() * VY;
 			if(GameLib.iskeyPressed(GameLib.KEY_CONTROL)) {
 				
-				System.out.println("CTRL");
+				//System.out.println("CTRL");
 				if(Time.getCurrentTime() > this.nextShot){		
 					
-					Projectile novo = new Projectile("PlayerProjectile", new Vector(this.position.x, this.position.y - 2 * this.radius), 0.0, -1.0);
+					Projectile novo = new PlayerProjectile("PlayerProjectile", new Vector(this.position.x, this.position.y - 2 * this.radius), 0.0, -1.0);
 					
 					this.nextShot = Time.getCurrentTime() + 100;
 						/*projectile_X[free] = player_X;
