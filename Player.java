@@ -45,6 +45,7 @@ public class Player extends GameActor {
 			case "Projectile":
 			case "Enemy1":
 			case "Enemy2":
+			case "Enemy3":
 				state = EXPLODING;
 				explosion_start = Time.getCurrentTime();
 				explosion_end = Time.getCurrentTime() + 2000;

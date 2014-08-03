@@ -31,6 +31,9 @@ public class Projectile extends GameActor {
 		case "Enemy2":
 			if(this.id == "Projectile")
 				break;
+		case "Enemy3":
+			if(this.id == "Projectile")
+				break;
 			GameController.Instance().Destroy(this);
 			break;
 		}

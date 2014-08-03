@@ -133,7 +133,8 @@ public class GameController {
 				
 				enemy2_count = 0;
 				enemy2_spawnX = Math.random() > 0.5 ? GameLib.WIDTH * 0.2 : GameLib.WIDTH * 0.8;
-				nextEnemy2 = (long) (Time.getCurrentTime() + 3000 + Math.random() * 3000);
+				nextEnemy2 = (long) (Time.getCurrentTime() + 12000 + Math.random() * 3000);
+				nextEnemy3 += 4000; //Evitar que tenham muitos inimigos na tela
 			}
 		}
 		
@@ -143,6 +144,7 @@ public class GameController {
 			//System.out.println("Instanciou");
 			Enemy3 novo = new Enemy3("Enemy3", new Vector(Math.random() * (GameLib.WIDTH -20.0) + 10.0, GameLib.HEIGHT + 10.0));
 			this.nextEnemy3 = Time.getCurrentTime() + 1000;
+			this.nextEnemy1+=400;
 		}
 	}
 	
