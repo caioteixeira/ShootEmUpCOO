@@ -100,7 +100,7 @@ public class GameController {
 		if(Time.getCurrentTime() > this.nextEnemy1)
 		{
 			//System.out.println("Instanciou");
-			Enemy1 novo = new Enemy1("enemy1", new Vector(Math.random() * (GameLib.WIDTH -20.0) + 10.0, -10.0));
+			Enemy1 novo = new Enemy1("Enemy1", new Vector(Math.random() * (GameLib.WIDTH -20.0) + 10.0, -10.0));
 			novo.velocity = 0.20 + Math.random() * 0.15;
 			novo.angle = 3 * Math.PI / 2;
 			novo.rotationvelocity = 0.0;

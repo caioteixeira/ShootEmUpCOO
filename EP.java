@@ -42,6 +42,7 @@ public class EP {
 		
 		GameController controller = GameController.Instance();
 		Background bg = new Background("background", new Vector(0,0));
+		Player player = Player.Instance();
 		
 		while(running){
 		
@@ -56,6 +57,8 @@ public class EP {
 			controller.update();
 			
 			/* chamama a display() da classe GameLib atualiza o desenho exibido pela interface do jogo. */
+			
+			if(GameLib.iskeyPressed(GameLib.KEY_ESCAPE)) running = false;
 			
 			GameLib.display();
 			
