@@ -1,6 +1,7 @@
 
 //Define Game Actors
-//Deve ser superclasse de entidades que devem lidar com colisões (Player, Inimigos, Projeteis)
+//Game Actor são entidades que podem sofrer colisões
+//É filha de GameEntity, mas implementa o método onCollision que é chamado ao ser detectada colisão com outro GameActor
 
 public abstract class GameActor extends GameEntity {
 	protected double radius;

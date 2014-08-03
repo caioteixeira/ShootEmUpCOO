@@ -1,5 +1,8 @@
 import java.awt.Color;
 
+/*
+ * Define o desenho do fundo
+ */
 
 public class Background extends GameEntity {
 		Vector[] backgroundDistante;

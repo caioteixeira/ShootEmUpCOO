@@ -1,6 +1,11 @@
 import java.awt.Color;
 
 
+/*
+ * Define o comportamento do Enemy1
+ */
+
+
 public class Enemy1 extends Enemy {
 	
 	long nextShot;

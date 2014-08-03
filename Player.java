@@ -1,6 +1,12 @@
 import java.awt.Color;
 
 
+/*
+ * Define compartamento do objeto Player
+ * 
+ * É um Singleton, pois precisa ser o único objeto deste tipo no jogo.
+ */
+
 public class Player extends GameActor {
 	public static final int ACTIVE = 1;
 	public static final int EXPLODING = 2;

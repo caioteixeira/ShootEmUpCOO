@@ -1,5 +1,8 @@
 import java.awt.Color;
 
+/*
+ * Define o comportamento de projéteis
+ */
 
 public class Projectile extends GameActor {
 	

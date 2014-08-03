@@ -40,6 +40,10 @@ public class EP {
 		/*                                                                                               */
 		/*************************************************************************************************/
 		
+		
+		/*
+		 * Define GameController, classe responsavel por gerenciar a atualizacao das entidades de jogo
+		 */
 		GameController controller = GameController.Instance();
 		Background bg = new Background("background", new Vector(0,0));
 		Player player = Player.Instance();

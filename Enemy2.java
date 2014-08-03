@@ -1,5 +1,8 @@
 import java.awt.Color;
 
+/*
+ * Define o comportamento do Enemy2
+ */
 
 public class Enemy2 extends Enemy {
 	

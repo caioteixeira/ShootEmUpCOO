@@ -1,6 +1,11 @@
 
 public abstract class Enemy extends GameActor {
 	
+	/*
+	 * Classe abstrata que define variáveis comuns a inimigos
+	 */
+	
+	
 	//Estados
 	public static final int INACTIVE = 0;
 	public static final int ACTIVE = 1;

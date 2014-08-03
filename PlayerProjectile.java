@@ -1,5 +1,10 @@
 import java.awt.Color;
 
+/*
+ * Define o comportamento de um projetil atirado pela jogador
+ * É filha de Projectile pois o único comportamento diferente é o draw()
+ */
+
 
 public class PlayerProjectile extends Projectile {
 

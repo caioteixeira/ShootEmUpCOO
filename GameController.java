@@ -2,6 +2,16 @@ import java.awt.Color;
 import java.util.LinkedList;
 
 //Classe responsável por controlar todo o gameplay, deve ser Singleton
+
+/*
+ * Esta classe implementa dois padrões de projeto:
+ * 
+ * -Update Method: Pode ser interpretado com uma variação do padrão Observer, como descrito na seguinte referência:
+ *  http://gameprogrammingpatterns.com/update-method.html
+ * 
+ * -Singleton: Deve ser um Singleton, pois esta classe também controla quais objetos devem ser "observers" ou que deixam de ser.
+ * 
+ */
 public class GameController {
 	
 	LinkedList<GameEntity> entities;
@@ -97,10 +107,10 @@ public class GameController {
 	}
 	
 	//Atualiza inimigos
+	//Verifica quando novos inimigos devem ser lançados
 	private void updateEnemies()
 	{
 		//Precisa lancar novo inimigo 1?
-		//System.out.println("Cur:" + Time.getCurrentTime() + "\nNext:"+this.nextEnemy1);
 		if(Time.getCurrentTime() > this.nextEnemy1)
 		{
 			//System.out.println("Instanciou");
@@ -139,6 +149,15 @@ public class GameController {
 		}
 	}
 	
+	
+	//Implementação do padrão Update Method
+	/*
+	 * O ciclo de vida do Método update é dividido nas seguintes etapas:
+	 * 1)Atualizar listas: Verifica se novas entidades foram criadas ou destruidas
+	 * 2)Loop de física: Verifica se existem colisões entre duas entidades, se houver chama seus respectivos métodos de tratamento de colisão
+	 * 3)Loop Update: chama o método update() de todos as entidades
+	 * 4)Loop Draw: chama o método draw() de todas as entidades
+	 */
 	public void update()
 	{
 		updateLists();
