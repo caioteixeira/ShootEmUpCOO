@@ -2,20 +2,20 @@ import java.awt.Color;
 
 
 /*
- * Define o comportamento do Enemy1
+ * Define o comportamento do Enemy3
  */
 
 
-public class Enemy1 extends Enemy {
+public class Enemy3 extends Enemy {
 	
 	long nextShot;
 
-	Enemy1(String id, Vector position) {
+	Enemy3(String id, Vector position) {
 		super(id, position);
 		state = ACTIVE;
 		nextShot = (long) (Time.getCurrentTime() + 500);
-		velocity = 0.20 + Math.random() * 0.15;
-		angle = 3 * Math.PI / 2;
+		velocity = 0.20 + Math.random() * 0.15 * (-1);
+		angle =   Math.PI / 2;
 		rotationvelocity = 0.0;
 		this.radius = 9.0;
 	}
@@ -49,7 +49,7 @@ public class Enemy1 extends Enemy {
 			break;
 		case ACTIVE:
 			/* verificando se inimigo saiu da tela */
-			if(this.position.y > GameLib.HEIGHT + 10) {
+			if(this.position.y < -10) {
 				
 				GameController.Instance().Destroy(this);
 			}
@@ -78,7 +78,10 @@ public class Enemy1 extends Enemy {
 				
 				if(Time.getCurrentTime() > this.nextShot)
 				{
-					new Projectile("Projectile", new Vector(this.position.x, this.position.y), Math.cos(this.angle) * 0.45, Math.sin(this.angle) * 0.45 * (-1.0));
+					double pAngle = (Math.PI / 2);
+					if(this.position.y < Player.Instance().position.y)
+						 pAngle *= 3;
+					new Projectile("Projectile", new Vector(this.position.x, this.position.y), Math.cos(pAngle) * 0.45, Math.sin(pAngle) * 0.45 * (-1.0));
 					this.nextShot = (long) (Time.getCurrentTime() +200 + Math.random() * 500);
 				}
 			}
@@ -96,9 +99,10 @@ public class Enemy1 extends Enemy {
 		}
 		
 		if(state == ACTIVE){
-			GameLib.setColor(Color.CYAN);
+			GameLib.setColor(Color.YELLOW);
 			GameLib.drawCircle(this.position.x, this.position.y, this.getRadius());
 		}
 	}
 
 }
+

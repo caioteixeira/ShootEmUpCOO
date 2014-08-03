@@ -24,6 +24,8 @@ public class GameController {
 	int enemy2_count = 0;									// contagem de inimigos tipo 2 (usada na "formação de voo")
 	long nextEnemy2;
 	
+	long nextEnemy3;
+	
 	private GameController()
 	{
 		entities = new LinkedList<GameEntity>();
@@ -35,6 +37,7 @@ public class GameController {
 		
 		
 		nextEnemy1 = Time.getCurrentTime() + 2000;
+		nextEnemy3 = Time.getCurrentTime() + 9000;
 		nextEnemy2 = Time.getCurrentTime() + 7000;
 	};
 	private static GameController instance;
@@ -107,9 +110,6 @@ public class GameController {
 		{
 			//System.out.println("Instanciou");
 			Enemy1 novo = new Enemy1("Enemy1", new Vector(Math.random() * (GameLib.WIDTH -20.0) + 10.0, -10.0));
-			novo.velocity = 0.20 + Math.random() * 0.15;
-			novo.angle = 3 * Math.PI / 2;
-			novo.rotationvelocity = 0.0;
 			this.nextEnemy1 = Time.getCurrentTime() + 500;
 		}
 		
@@ -122,9 +122,6 @@ public class GameController {
 			
 			Vector position = new Vector (enemy2_spawnX, -10.0);
 			Enemy2 novo = new Enemy2("Enemy2", position);
-			novo.velocity = 0.42;
-			novo.angle = (3 * Math.PI) / 2;
-			novo.rotationvelocity = 0.0;
 
 			enemy2_count++;
 			
@@ -138,6 +135,14 @@ public class GameController {
 				enemy2_spawnX = Math.random() > 0.5 ? GameLib.WIDTH * 0.2 : GameLib.WIDTH * 0.8;
 				nextEnemy2 = (long) (Time.getCurrentTime() + 3000 + Math.random() * 3000);
 			}
+		}
+		
+		//Precisa lancar novo inimigo3
+		if(Time.getCurrentTime() > nextEnemy3)
+		{
+			//System.out.println("Instanciou");
+			Enemy3 novo = new Enemy3("Enemy3", new Vector(Math.random() * (GameLib.WIDTH -20.0) + 10.0, GameLib.HEIGHT + 10.0));
+			this.nextEnemy3 = Time.getCurrentTime() + 1000;
 		}
 	}
 	

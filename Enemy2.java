@@ -13,6 +13,9 @@ public class Enemy2 extends Enemy {
 		super(id, position);
 		this.state = ACTIVE;
 		this.radius = 12.0;
+		this.velocity = 0.42;
+		this.angle = (3 * Math.PI) / 2;
+		this.rotationvelocity = 0.0;
 	}
 	
 	public void onCollision(GameActor collider)
