@@ -1,5 +1,3 @@
-import java.awt.Color;
-
 public class EP {
 	
 	
@@ -43,7 +41,7 @@ public class EP {
 		/*************************************************************************************************/
 		
 		GameController controller = GameController.Instance();
-		
+		Background bg = new Background("background", new Vector(0,0));
 		
 		while(running){
 		

@@ -22,6 +22,7 @@ public class Enemy1 extends Enemy {
 			{
 				this.explosion_start = Time.getCurrentTime();
 				this.explosion_end = Time.getCurrentTime() + 500;
+				this.state = EXPLODING;
 			}
 			break;
 		
@@ -80,9 +81,6 @@ public class Enemy1 extends Enemy {
 	
 	public void draw()
 	{
-		//System.out.println(this.position.y);
-		
-		//System.out.println("Desenha");
 		if(state == EXPLODING){
 			
 			double alpha = (Time.getCurrentTime() - explosion_start) / (explosion_end - explosion_start);
