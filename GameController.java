@@ -167,9 +167,7 @@ public class GameController {
 					if(dist < (player_radius + e_projectile_radius)
 				 */
 				
-				double dx = e.position.x - a.position.x;
-				double dy = e.position.y - a.position.y;
-				double dist = Math.sqrt(dx * dx + dy * dy);
+				double dist = e.position.distance(a.position);
 				if(dist < e.getRadius() + a.getRadius())
 				{
 					//Ocorre colisão com a
